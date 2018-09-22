@@ -1,8 +1,8 @@
 # About
 
-A set of python scripts that you use on a frequent basis to make your daily work more effective. 
+A set of python scripts that anyone can use on a frequent basis to make  work more effective. 
 However, the number of python scripts grow with time it becomes diffcult to manage. 
-This repo will discuss some best practices to manage your python code base so that code base can sustain and maintain it over the years. 
+This repo is implementation of some best practices to manage  python code base so that code base can sustain and maintain it over the years. 
 
 ## General guidlines
 
