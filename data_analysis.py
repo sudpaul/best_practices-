@@ -78,8 +78,16 @@ def data_quality(dataframe):
         
     """Basice data quality check routine. Input is a pandas dataframe
     print out the number of columns, name, unique values in and datatypes of the
-    column"""
+    column
     
+    Parameters
+    ----------
+    dataframe : obj
+               pandas dataframe object
+    Returns: None
+    
+    """
+     
     print('Number of Columns the dataset has {}'. format(dataframe.shape[1]))
     
     for column in dataframe.columns:
@@ -90,11 +98,20 @@ def data_quality(dataframe):
 
     print(dataframe.isnull().sum()) 
 
-
-
-
-
 #Data transformation
+
+def data_transform(df, group_by, numeric_column):
+    
+    total = df.groupby(group_by)[numeric_column].transform('sum')
+    percentage = 100*(df[numeric_column]/total)
+    
+    return percentage
+    
+
+def data_aggregate(df, group_by, numeric_column):
+    
+    df.groupby(group_by)[numeric_column].mean()
+
 
 
 
