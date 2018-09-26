@@ -120,5 +120,5 @@ def data_aggregate(df, group_by, numeric_column):
 
 
 
-#Data Aggregation
+#Data write
 
