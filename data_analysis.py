@@ -76,7 +76,7 @@ def read_data(filename):
 
 def data_quality(dataframe):
         
-    """Basice data quality check routine. Input is a pandas dataframe
+    """Basic data quality check routine. Input is a pandas dataframe
     print out the number of columns, name, unique values in and datatypes of the
     column
     
@@ -102,6 +102,21 @@ def data_quality(dataframe):
 
 def data_transform(df, group_by, numeric_column):
     
+    """Data is tranformed by categories and applied numeric sum of the numeric_column
+    Inputs are dataframe, group_by column and quantative column and 
+    return percentage by the categories. 
+       
+    Parameters
+    ----------
+    dataframe : obj
+               pandas dataframe object
+    group_by : str
+               input categorical variable name
+    numeric_column: str
+                input numeric variable name
+    Returns: float
+             pandas series object
+    """
     total = df.groupby(group_by)[numeric_column].transform('sum')
     percentage = 100*(df[numeric_column]/total)
     
