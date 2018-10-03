@@ -40,8 +40,8 @@ Created on Wed Oct  3 11:02:07 2018
 # Note when droping rows and columns from the dataset, specify axis=1 for columns and axis=0 for rows
 
 #df = df.drop([col1, col2], axis=1)
-
-
+#Drop all rows have have less than n non null values
+# df = df.dropna(axis=1,thresh=n)
 # Split delimited values in a DataFrame column into two new columns
 #df['new_col1'], df['new_col2'] = zip(*df['original_col'].apply(lambda x: x.split(': ', 1)))
 
@@ -51,8 +51,10 @@ Created on Wed Oct  3 11:02:07 2018
 #Create a custom column from a python function which takes pandas series as input argument
 # df['new_column'] = df.apply(my_function, axis=1) 
 
-
-
+# Changing data types
+#df[column] = df[column].astype("category")
+#df[column] = df[column].astype(float)
+   
 # Clean up missing values in multiple DataFrame columns
 #df = df.fillna({
     #'col1': 'missing',
