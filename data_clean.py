@@ -54,7 +54,9 @@ Created on Wed Oct  3 11:02:07 2018
 # Changing data types
 #df[column] = df[column].astype("category")
 #df[column] = df[column].astype(float)
-   
+ 
+#df['date'] = pd.to_datetime(df['date'],format='%Y-%m-%d')
+    
 # Clean up missing values in multiple DataFrame columns
 #df = df.fillna({
     #'col1': 'missing',
