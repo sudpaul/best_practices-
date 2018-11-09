@@ -29,7 +29,8 @@ Created on Wed Oct  3 11:02:07 2018
 
 #df.rename(columns=lambda x: x.split('.')[-1], inplace=True)
 
-
+#Frequency table for categorical data
+#df[colname].value_counts(dropna=False)
 
 # Get a report of all duplicate records in a dataframe, based on specific columns
 #dupes = df[df.duplicated(['col1', 'col2', 'col3'], keep=False)]
