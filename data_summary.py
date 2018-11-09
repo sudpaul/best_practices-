@@ -5,7 +5,13 @@ Created on Wed Sep 26 12:31:00 2018
 @author: z3525552
 """
 import missingno as msno
+import pandas as pd
 
+def frequency_table(dataframe, data_col1, data_col2):
+    
+             
+    return pd.crosstab(dataframe.data_col1, dataframe.data_col2, margins=True, 
+                  margins_name="Total",rownames=data_col1, colnames= data_col2)
 
 def missing_data(dataframe):
     
