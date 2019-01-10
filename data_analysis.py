@@ -102,8 +102,24 @@ def data_quality(dataframe):
 
 # To do data casting on given columns    
 def data_cast(df, key_column, value_column, join_how= 'outer'):
-        
-
+    
+    assert type (df) is pd.DataFrame
+    assert key_column in df.columns and value_column in df.columns
+    assert join_how in ['outer', 'inner']
+    
+    fixed_columns = df.columns.difference([key_column, value_column])
+    df_cast = pd.DataFrame(columns=fixed_columns)
+    
+    cast_columns = df[key_column].unique()
+    
+    for column in cast_columns:
+        temp_df = df[df[key_column]==column]
+        del temp_df[key_column]
+        temp_df = temp_df.rename(columns={value_column:column})
+        df_cast = df_cast.merge(temp_df, on=list(fixed_columns), how=join_how)
+    
+    return df_cast     
+   
 
     
 # To do data melting on given columns   
