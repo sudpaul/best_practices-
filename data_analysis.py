@@ -100,6 +100,15 @@ def data_quality(dataframe):
 
 #Data transformation
 
+# To do data casting on given columns    
+def data_cast(df, key_column, value_column, join_how= 'outer'):
+        
+
+
+    
+# To do data melting on given columns   
+    
+
 def data_transform(df, group_by, numeric_column):
     
     """Data is tranformed by categories and applied numeric sum of the numeric_column
@@ -122,6 +131,7 @@ def data_transform(df, group_by, numeric_column):
     
     return percentage
     
+# To do data aggregating 
 
 def data_aggregate(df, group_by, numeric_column):
     
