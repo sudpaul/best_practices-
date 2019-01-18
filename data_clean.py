@@ -50,7 +50,7 @@ Created on Wed Oct  3 11:02:07 2018
 #df.assign(newcolumn=value)
 
 #Create a custom column from a python function which takes pandas series as input argument
-# df['new_column'] = df.apply(my_function, axis=1) 
+# df['new_column'] = df.apply(my_function) 
 
 # Changing data types
 #df[column] = df[column].astype("category")
