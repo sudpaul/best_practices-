@@ -68,3 +68,11 @@ Created on Wed Oct  3 11:02:07 2018
    # 'col6': '99'
 #})
 
+#Filter data given string (description of variable)
+#df[df[column].map(lambda x: x.startswith('givenstring'))]
+   
+#Filter data list of numerical, string values for a column
+#df[df[column].isin(given_list)]
+# Reversrse filtering 
+#df[~df[column].isin(given_list)]   
+   
