@@ -10,8 +10,8 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MY_ADDRESS = 'z3525552@ad.unsw.edu.au'
-PASSWORD = 'Anjali@1'
+MY_ADDRESS = #sender email address
+PASSWORD = #account password 
 
 def get_contacts(filename):
     """
