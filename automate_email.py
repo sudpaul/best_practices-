@@ -10,8 +10,8 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-MY_ADDRESS = #sender email address
-PASSWORD = #account password 
+MY_ADDRESS = 
+PASSWORD =
 
 def get_contacts(filename):
     """
@@ -38,11 +38,11 @@ def read_template(filename):
     return Template(template_file_content)
 
 def main():
-    names, emails = get_contacts('mycontacts.txt') # read contacts
-    message_template = read_template('message.txt')
+    names, emails = get_contacts('C:/Users/z3525552/address.txt') # read contacts
+    message_template = read_template('C:/Users/z3525552/message.txt')
 
     # set up the SMTP server
-    s = smtplib.SMTP(host='smtp.office365.com', port=587)
+    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
     s.login(MY_ADDRESS, PASSWORD)
 
@@ -59,7 +59,7 @@ def main():
         # setup the parameters of the message
         msg['From']=MY_ADDRESS
         msg['To']=email
-        msg['Subject']="This is TEST"
+        msg['Subject']="Your HDR Candidature Experience at UNSW Medicine"
         
         # add in the message body
         msg.attach(MIMEText(message, 'plain'))
