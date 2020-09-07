@@ -154,12 +154,15 @@ def data_aggregate(df, group_by, numeric_column):
     df.groupby(group_by)[numeric_column].mean()
 
 
+def data_write(df, filename, sheetname):
+    
+    '''This helper function takes input dataframe, name of the excel file,
+    sheetname and save the file as specified in the directory 
+    print out the status''' 
+    
+    
+    writer = pd.ExcelWriter(filename)
+    df.to_excel(writer,sheetname, index=False, encoding='utf-8')
+    writer.save()
 
-
-
-
-
-
-
-#Data write
 
