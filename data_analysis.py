@@ -87,7 +87,6 @@ def data_quality(dataframe):
     Returns: None
     
     """
-     
     print('Number of Columns the dataset has {}'. format(dataframe.shape[1]))
     
     for column in dataframe.columns:
@@ -95,14 +94,16 @@ def data_quality(dataframe):
             dataframe[column].name, dataframe[column].nunique(), dataframe[column].dtype
         ))
         print()
-
     print(dataframe.isnull().sum()) 
 
 #Data transformation
 
 # To do data casting on given columns    
 def data_cast(df, key_column, value_column, join_how= 'outer'):
-    
+    """Cast the input data frame into a new cast data frame,
+    where given the key column containing new variable names and 
+    a value column containing the corresponding cells.
+    """
     assert type (df) is pd.DataFrame
     assert key_column in df.columns and value_column in df.columns
     assert join_how in ['outer', 'inner']
@@ -121,8 +122,23 @@ def data_cast(df, key_column, value_column, join_how= 'outer'):
     return df_cast     
    
 
+def melt(df, col_vals, key, value):
+    """Melt the input data frame where given the values often
+    appear as columns, the function takes columns into rows, 
+    making a "fat" table more tall and skinny and return melted data frame"""
     
-# To do data melting on given columns   
+    assert type(df) is pd.DataFrame
+    keep_vars = df.columns.difference(col_vals)
+    melted_sections = []
+    
+    for c in col_vals:
+        melted_c = df[keep_vars].copy()
+        melted_c[key] = c
+        melted_c[value] = df[c]
+        melted_sections.append(melted_c)
+    melted = pd.concat(melted_sections)
+    
+    return melted  
     
 
 def data_transform(df, group_by, numeric_column):
@@ -159,8 +175,7 @@ def data_write(df, filename, sheetname):
     '''This helper function takes input dataframe, name of the excel file,
     sheetname and save the file as specified in the directory 
     print out the status''' 
-    
-    
+       
     writer = pd.ExcelWriter(filename)
     df.to_excel(writer,sheetname, index=False, encoding='utf-8')
     writer.save()
