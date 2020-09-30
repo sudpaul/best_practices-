@@ -169,10 +169,17 @@ def data_aggregate(df, group_by, numeric_column):
     
     df.groupby(group_by)[numeric_column].mean()
 
+def custom_fuc(df, index, column):
+    
+    if df[column].loc[index]> 0:
+        return 'group_1'
+    else:
+        return 'group_2'
+# Clustering numeric column to categorical variable on aggregate data
+df.groupby(lambda x: custom_fuc(df, x, numeric_column))
 
 def data_write(df, filename, sheetname):
-    
-    '''This helper function takes input dataframe, name of the excel file,
+   '''This helper function takes input dataframe, name of the excel file,
     sheetname and save the file as specified in the directory 
     print out the status''' 
        
