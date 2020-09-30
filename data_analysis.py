@@ -179,10 +179,9 @@ def custom_fuc(df, index, column):
 df.groupby(lambda x: custom_fuc(df, x, numeric_column))
 
 def data_write(df, filename, sheetname):
-   '''This helper function takes input dataframe, name of the excel file,
+    '''This helper function takes input dataframe, name of the excel file,
     sheetname and save the file as specified in the directory 
     print out the status''' 
-       
     writer = pd.ExcelWriter(filename)
     df.to_excel(writer,sheetname, index=False, encoding='utf-8')
     writer.save()
