@@ -122,7 +122,7 @@ def data_cast(df, key_column, value_column, join_how= 'outer'):
     return df_cast     
    
 
-def melt(df, col_vals, key, value):
+def data_melt(df, col_vals, key, value):
     """Melt the input data frame where given the values often
     appear as columns, the function takes columns into rows, 
     making a "fat" table more tall and skinny and return melted data frame"""
