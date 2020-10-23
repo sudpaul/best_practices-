@@ -14,7 +14,8 @@ def frequency_table(dataframe, data_col1, data_col2):
     return pd.crosstab(dataframe.data_col1, dataframe.data_col2, margins=True, 
                   margins_name="Total",rownames=data_col1, colnames= data_col2)
 
-def side_table(dataframe, row_index, col_index,value)
+def side_table(dataframe, row_index, col_index,value):
+    
     return dataframe.stb.freq([row_index, col_index], value=value)
 def missing_data(dataframe):
     
