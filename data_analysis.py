@@ -177,6 +177,28 @@ def custom_fuc(df, index, column):
         return 'group_2'
 # Clustering numeric column to categorical variable on aggregate data
 df.groupby(lambda x: custom_fuc(df, x, numeric_column))
+# Dictionary lookups (Lookup value from a reference source)
+ source_dict = {   }
+%%timeit
+df['newcolumn_lookup'] = np.where(
+    df['Col'].values > condition, 
+    'val', # default return value
+    df['Col_category'].map(source_dict)
+)
+
+# Transform the data to a new dimension based on reference condition of other column
+conditions = [
+    df['Source_col'].str.contains(r'', case=False, na=False),
+    df['Source_col'].str.contains(r'', case=False, na=False),
+]
+
+outcome = [
+    # result1
+    #result 2
+]
+
+df['Target_col'] = np.select(conditions, choices, default='unknown') # default is the fallback of catch-all
+
 
 def data_write(df, filename, sheetname):
     '''This helper function takes input dataframe, name of the excel file,
